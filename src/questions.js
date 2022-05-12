@@ -11,7 +11,12 @@ const questions = {
     }],
   },
   comparisonTask: {
-    questions: [],
+    questions: [{
+        images: [
+            "/images/Field1_2017-07-03.jpg",
+            "/images/Field1_2017-07-18.jpg",
+        ],
+    }],
   }
 };
 

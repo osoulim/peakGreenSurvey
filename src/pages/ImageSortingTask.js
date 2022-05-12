@@ -57,7 +57,7 @@ function ImageSortingTask() {
 
 
   return(
-      <div>
+      <div style={{display: "flex", flexDirection: "column", justifyContent: "space-evenly", alignItems: "center", height: 700}}>
         <h1 className='bg-gray-100 text-gray-900'>
           Welcome to sorting: {questionId}
         </h1>
@@ -66,14 +66,14 @@ function ImageSortingTask() {
           <Droppable droppableId="images" direction="horizontal">
             {(provided) => (
                 <div
-                    style={{display: "flex", minHeight:250, padding: 20, alignItems: "center", justifyContent: "center", borderWidth:1}}
+                    style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center"}}
                     className="imagesList" {...provided.droppableProps} ref={provided.innerRef}>
                   { imagesOrder.map((imageAddress, index) =>
                       (
                           <Draggable key={imageAddress} draggableId={imageAddress} index={index}>
                             {(provided) => (
                                 <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                                  <img src={process.env.PUBLIC_URL + imageAddress}/>
+                                  <img style={{margin: 10}} src={process.env.PUBLIC_URL + imageAddress}/>
                                 </div>
                             )}
                           </Draggable>
@@ -83,29 +83,35 @@ function ImageSortingTask() {
             )}
           </Droppable>
 
-          <div style={{display: "flex", justifyContent: "space-around", paddingTop: 10, paddingBottom: 10, borderWidth:1}}>
-            <Droppable droppableId="first" direction="horizontal">
-              {(provided) => (
-                  <div style={{minWidth: 250, minHeight:250, display: "flex", alignItems: "center", justifyContent: "center", padding: 5, borderWidth:1}}
-                       className="firstList" {...provided.droppableProps} ref={provided.innerRef}>
-                    { firstList.map((imageAddress, index) =>
-                        (
-                            <Draggable key={imageAddress} draggableId={imageAddress} index={index}>
-                              {(provided) => (
-                                  <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                                    <img src={process.env.PUBLIC_URL + imageAddress}/>
-                                  </div>
-                              )}
-                            </Draggable>
-                        ))
-                    }
-                  </div>
-              )}
-            </Droppable>
+          <div style={{display: "flex", flexDirection: "row", justifyContent: "space-around",}}>
+            <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+              <span>First:</span>
+              <Droppable droppableId="first" direction="horizontal">
+                {(provided) => (
+                    <div style={{margin: 10, minWidth: 250, minHeight:250, display: "flex", alignItems: "center", justifyContent: "center", padding: 5, borderWidth:1}}
+                         className="firstList" {...provided.droppableProps} ref={provided.innerRef}>
+                      { firstList.map((imageAddress, index) =>
+                          (
+                              <Draggable key={imageAddress} draggableId={imageAddress} index={index}>
+                                {(provided) => (
+                                    <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                                      <img src={process.env.PUBLIC_URL + imageAddress}/>
+                                    </div>
+                                )}
+                              </Draggable>
+                          ))
+                      }
+                    </div>
+                )}
+              </Droppable>
+            </div>
 
-            <Droppable droppableId="second" direction="horizontal">
+            <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+              <span>Second:</span>
+
+              <Droppable droppableId="second" direction="horizontal">
               {(provided) => (
-                  <div style={{minWidth: 250, minHeight:250, display: "flex", alignItems: "center", justifyContent: "center", padding: 5, borderWidth:1}}
+                  <div style={{margin: 10, minWidth: 250, minHeight:250, display: "flex", alignItems: "center", justifyContent: "center", padding: 5, borderWidth:1}}
                        className="secondList" {...provided.droppableProps} ref={provided.innerRef}>
                     { secondList.map((imageAddress, index) =>
                         (
@@ -120,11 +126,15 @@ function ImageSortingTask() {
                     }
                   </div>
               )}
-            </Droppable>
+              </Droppable>
+            </div>
 
-            <Droppable droppableId="third" direction="horizontal">
+            <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+              <span>Third:</span>
+
+              <Droppable droppableId="third" direction="horizontal">
               {(provided) => (
-                  <div style={{minWidth: 250, minHeight:250, display: "flex", alignItems: "center", justifyContent: "center", padding: 5, borderWidth:1}}
+                  <div style={{margin: 10, minWidth: 250, minHeight:250, display: "flex", alignItems: "center", justifyContent: "center", padding: 5, borderWidth:1}}
                        className="thirdList" {...provided.droppableProps} ref={provided.innerRef}>
                     { thirdList.map((imageAddress, index) =>
                         (
@@ -140,6 +150,7 @@ function ImageSortingTask() {
                   </div>
               )}
             </Droppable>
+            </div>
           </div>
 
 
