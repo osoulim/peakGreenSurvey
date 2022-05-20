@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import {useParams} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";
 import {DragDropContext, Draggable, Droppable} from 'react-beautiful-dnd';
 import tasks from "../questions";
 
 function ImageSortingTask() {
+  const navigate = useNavigate();
+
   const {questionId} = useParams();
   const {sortingTask: {questions}} = tasks;
   const imagesList = questions[parseInt(questionId) - 1].images;
@@ -55,6 +57,14 @@ function ImageSortingTask() {
     updateFunctions[result.destination.droppableId](destItems);
   }
 
+  function onSubmitForm() {
+    localStorage.setItem(`sorting_${questionId}`, JSON.stringify({first: firstList, second: secondList, third: thirdList}));
+    if (parseInt(questionId)+1 <= questions.length) {
+      navigate(`/image-sorting/${parseInt(questionId)+1}`)
+    } else {
+      navigate('/image-comparison/1')
+    }
+  }
 
   return(
       <div style={{display: "flex", flexDirection: "column", justifyContent: "space-evenly", alignItems: "center", height: 700}}>
@@ -156,6 +166,9 @@ function ImageSortingTask() {
 
         </DragDropContext>
 
+        <div style={{display: "flex",}}>
+          <button disabled={firstList.length === 0} onClick={onSubmitForm}>Submit</button>
+        </div>
 
       </div>
   )
