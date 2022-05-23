@@ -68,22 +68,22 @@ function ImageSortingTask() {
 
   return(
       <div style={{display: "flex", flexDirection: "column", justifyContent: "space-evenly", alignItems: "center", height: 700}}>
-        <h1 className='bg-gray-100 text-gray-900'>
-          Welcome to sorting: {questionId}
+        <h1>
+          Please choose the 3 brightest images by drag and dropping them.
         </h1>
 
         <DragDropContext onDragEnd={handleOnDragEnd}>
           <Droppable droppableId="images" direction="horizontal">
             {(provided) => (
                 <div
-                    style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center"}}
+                    style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", backgroundColor: "#04293A", borderRadius: 20, padding: 35}}
                     className="imagesList" {...provided.droppableProps} ref={provided.innerRef}>
                   { imagesOrder.map((imageAddress, index) =>
                       (
                           <Draggable key={imageAddress} draggableId={imageAddress} index={index}>
                             {(provided) => (
                                 <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                                  <img style={{margin: 10}} src={process.env.PUBLIC_URL + imageAddress}/>
+                                  <img style={{margin: 10, width: 170}} src={process.env.PUBLIC_URL + imageAddress}/>
                                 </div>
                             )}
                           </Draggable>
@@ -98,7 +98,7 @@ function ImageSortingTask() {
               <span>First:</span>
               <Droppable droppableId="first" direction="horizontal">
                 {(provided) => (
-                    <div style={{margin: 10, minWidth: 250, minHeight:250, display: "flex", alignItems: "center", justifyContent: "center", padding: 5, borderWidth:1}}
+                    <div style={{margin: 10, minWidth: 250, minHeight:250, display: "flex", alignItems: "center", justifyContent: "center", padding: 5, borderWidth:1, backgroundColor: "#04293A", borderRadius: 20}}
                          className="firstList" {...provided.droppableProps} ref={provided.innerRef}>
                       { firstList.map((imageAddress, index) =>
                           (
@@ -121,7 +121,7 @@ function ImageSortingTask() {
 
               <Droppable droppableId="second" direction="horizontal">
               {(provided) => (
-                  <div style={{margin: 10, minWidth: 250, minHeight:250, display: "flex", alignItems: "center", justifyContent: "center", padding: 5, borderWidth:1}}
+                  <div style={{margin: 10, minWidth: 250, minHeight:250, display: "flex", alignItems: "center", justifyContent: "center", padding: 5, borderWidth:1, backgroundColor: "#04293A", borderRadius: 20}}
                        className="secondList" {...provided.droppableProps} ref={provided.innerRef}>
                     { secondList.map((imageAddress, index) =>
                         (
@@ -144,7 +144,7 @@ function ImageSortingTask() {
 
               <Droppable droppableId="third" direction="horizontal">
               {(provided) => (
-                  <div style={{margin: 10, minWidth: 250, minHeight:250, display: "flex", alignItems: "center", justifyContent: "center", padding: 5, borderWidth:1}}
+                  <div style={{margin: 10, minWidth: 250, minHeight:250, display: "flex", alignItems: "center", justifyContent: "center", padding: 5, borderWidth:1, backgroundColor: "#04293A", borderRadius: 20}}
                        className="thirdList" {...provided.droppableProps} ref={provided.innerRef}>
                     { thirdList.map((imageAddress, index) =>
                         (
@@ -167,7 +167,7 @@ function ImageSortingTask() {
         </DragDropContext>
 
         <div style={{display: "flex",}}>
-          <button disabled={firstList.length === 0} onClick={onSubmitForm}>Submit</button>
+          <button style={{backgroundColor: "#ECB365", padding: 10, color: "#000", borderRadius: 10}} disabled={firstList.length === 0} onClick={onSubmitForm}>Submit</button>
         </div>
 
       </div>
