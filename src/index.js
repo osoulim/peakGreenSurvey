@@ -14,6 +14,7 @@ import ImageSortingTask from "./pages/ImageSortingTask";
 import ImageComparisonTask from "./pages/ImageComparisonTask";
 import ImageComparisonTutorial from "./pages/ImageComparisonTutorial";
 import ImageSortingTutorial from "./pages/ImageSortingTutorial";
+import Submit from "./pages/submit";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -24,6 +25,7 @@ ReactDOM.render(
         <Route path="/image-sorting/:questionId" element={<ImageSortingTask/>} />
         <Route path="/image-comparison" element={<ImageComparisonTutorial />} />
         <Route path="/image-comparison/:questionId" element={<ImageComparisonTask/>} />
+        <Route path="/submit" element={<Submit/>} />
         <Route
             path="*"
             element={

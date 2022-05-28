@@ -1,5 +1,5 @@
 import { useParams, useNavigate} from "react-router-dom";
-import tasks from "../questions"
+import tasks from "../questions";
 import {useState} from "react";
 
 function ImageComparisonTask() {
@@ -15,7 +15,7 @@ function ImageComparisonTask() {
       if (parseInt(questionId)+1 <= questions.length) {
         navigate(`/image-comparison/${parseInt(questionId)+1}`)
       } else {
-        navigate('/done')
+        navigate('/submit')
       }
     }
 
