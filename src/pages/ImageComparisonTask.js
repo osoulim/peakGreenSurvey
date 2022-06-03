@@ -1,8 +1,8 @@
 import { useParams, useNavigate} from "react-router-dom";
 import tasks from "../questions";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
-function ImageComparisonTask() {
+const ImageComparisonTask = () => {
     const navigate = useNavigate();
     const {questionId} = useParams();
     const [selected, updateSelected] = useState("");
@@ -10,8 +10,13 @@ function ImageComparisonTask() {
     const {comparisonTask: {questions}} = tasks;
     const imagesList = questions[parseInt(questionId) - 1].images;
 
+  useEffect(() => {
+    updateSelected("");
+  },[questionId])
+
     function onSubmitForm() {
       localStorage.setItem(`comparison_${questionId}`, JSON.stringify({chosen: selected}));
+      updateSelected("");
       if (parseInt(questionId)+1 <= questions.length) {
         navigate(`/image-comparison/${parseInt(questionId)+1}`)
       } else {

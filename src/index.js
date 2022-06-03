@@ -22,7 +22,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/image-sorting" element={<ImageSortingTutorial />} />
-        <Route path="/image-sorting/:questionId" element={<ImageSortingTask/>} />
+        <Route path="/image-sorting/:questionId" element={<ImageSortingTask />} />
         <Route path="/image-comparison" element={<ImageComparisonTutorial />} />
         <Route path="/image-comparison/:questionId" element={<ImageComparisonTask/>} />
         <Route path="/submit" element={<Submit/>} />

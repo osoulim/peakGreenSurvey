@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {useParams, useNavigate} from "react-router-dom";
 import {DragDropContext, Draggable, Droppable} from 'react-beautiful-dnd';
 import tasks from "../questions";
 
-function ImageSortingTask() {
+const ImageSortingTask = () => {
   const navigate = useNavigate();
 
   const {questionId} = useParams();
@@ -15,6 +15,15 @@ function ImageSortingTask() {
   const [secondList, updateSecondList] = useState([]);
   const [thirdList, updateThirdList] = useState([]);
 
+  useEffect(() => {
+    const {sortingTask: {questions}} = tasks;
+    const imagesList = questions[parseInt(questionId) - 1].images;
+    updateImagesOrder(imagesList);
+    updateFirstList([]);
+    updateSecondList([]);
+    updateThirdList([]);
+  },[questionId])
+
   const updateFunctions = {
     images: updateImagesOrder,
     first: updateFirstList,
@@ -23,7 +32,6 @@ function ImageSortingTask() {
   };
 
   function handleOnDragEnd(result) {
-    console.log(result);
     if (!result.destination) return;
 
     let sourceItems;
@@ -60,9 +68,9 @@ function ImageSortingTask() {
   function onSubmitForm() {
     localStorage.setItem(`sorting_${questionId}`, JSON.stringify({first: firstList, second: secondList, third: thirdList}));
     if (parseInt(questionId)+1 <= questions.length) {
-      navigate(`/image-sorting/${parseInt(questionId)+1}`)
+      navigate(`/image-sorting/${parseInt(questionId)+1}`);
     } else {
-      navigate('/image-comparison/1')
+      navigate('/image-comparison/1');
     }
   }
 
