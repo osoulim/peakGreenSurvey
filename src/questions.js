@@ -28,14 +28,16 @@ const questions = {
         s3Prefix + "Field1_2019-07-28.jpg",
         s3Prefix + "Field1_2019-07-31.jpg",
       ],
-    }, {
-      images: [
-        s3Prefix + "Field1_2019-08-05.jpg",
-        s3Prefix + "Field1_2019-08-20.jpg",
-        s3Prefix + "Field1_2019-08-27.jpg",
-        s3Prefix + "Field1_2019-08-30.jpg",
-      ],
-    }, {
+    },
+    // {
+    //   images: [
+    //     s3Prefix + "Field1_2019-08-05.jpg",
+    //     s3Prefix + "Field1_2019-08-20.jpg",
+    //     s3Prefix + "Field1_2019-08-27.jpg",
+    //     s3Prefix + "Field1_2019-08-30.jpg",
+    //   ],
+    // },
+    {
       images: [
         s3Prefix + "Field1_2020-07-05.jpg",
         s3Prefix + "Field1_2020-07-15.jpg",
