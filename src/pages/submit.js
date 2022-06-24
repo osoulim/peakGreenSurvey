@@ -53,7 +53,7 @@ function Submit() {
   return(
     <div style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-around", height: 400, paddingTop: 20}}>
       <h1 style={{fontSize: "4rem"}}>You are almost done!</h1>
-      <span>Please fill the form bellow and submit it to finish the survey.</span>
+      <span>Please fill the form bellow and submit it to finish the survey. The following information will be sent to your email.</span>
       <div style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: 'center'}}>
           <span>Your email: </span>
           <input style={{ margin: 10, color: validateEmail(userEmail) ? "black" : "red"}} value={userEmail} type="text" placeholder="your_email@domain.com" onChange={e => emailUpdater(e.target.value)}/>
