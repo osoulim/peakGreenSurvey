@@ -101,27 +101,7 @@ const questions = {
     }],
   },
   comparisonTask: {
-    questions: [{
-        images: [
-            s3Prefix + "Field1_2017-07-16_FALSE.png",
-            s3Prefix + "Field1_2017-08-07_FALSE.png",
-        ],
-    }, {
-      images: [
-        s3Prefix + "Field1_2018-07-01_FALSE.png",
-        s3Prefix + "Field1_2018-08-07_FALSE.png",
-      ],
-    }, {
-      images: [
-        s3Prefix + "Field1_2019-09-21_FALSE.png",
-        s3Prefix + "Field1_2019-08-30_FALSE.png",
-      ],
-    }, {
-      images: [
-        s3Prefix + "Field3_2021-06-30_FALSE.png",
-        s3Prefix + "Field3_2021-07-05_FALSE.png",
-      ],
-    }],
+    questions: [],
   }
 };
 
