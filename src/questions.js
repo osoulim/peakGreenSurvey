@@ -47,6 +47,14 @@ const questions = {
       ],
     }, {
       images: [
+        "/images/field1_ndvi_medium.jpg",
+        "/images/field1_ndvi.jpg",
+        "/images/field1_ndvi_light.jpg",
+        "/images/field1_ndvi_dark.jpg",
+        "/images/field1_ndvi_brightest.jpg",
+      ],
+    }, {
+      images: [
         s3Prefix + "Field2_2017-06-28.png",
         s3Prefix + "Field2_2017-07-13.png",
         s3Prefix + "Field2_2017-07-18.png",
@@ -78,6 +86,13 @@ const questions = {
       ],
     }, {
       images: [
+        "/images/Field3_dark.png",
+        "/images/Field3_light.png",
+        "/images/Field3_brightest.png",
+        "/images/Field3.png",
+      ],
+    },{
+      images: [
         s3Prefix + "Field3_2018-07-06.png",
         s3Prefix + "Field3_2018-07-11.png",
         s3Prefix + "Field3_2018-07-16.png",
@@ -101,27 +116,7 @@ const questions = {
     }],
   },
   comparisonTask: {
-    questions: [{
-        images: [
-            s3Prefix + "Field1_2017-07-16.png",
-            s3Prefix + "Field1_2017-08-07.png",
-        ],
-    }, {
-      images: [
-        s3Prefix + "Field1_2018-07-01.png",
-        s3Prefix + "Field1_2018-08-07.png",
-      ],
-    }, {
-      images: [
-        s3Prefix + "Field1_2019-09-21.png",
-        s3Prefix + "Field1_2019-08-30.png",
-      ],
-    }, {
-      images: [
-        s3Prefix + "Field3_2021-06-30.png",
-        s3Prefix + "Field3_2021-07-05.png",
-      ],
-    }],
+    questions: [],
   }
 };
 

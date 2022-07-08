@@ -70,7 +70,7 @@ const ImageSortingTask = () => {
     if (parseInt(questionId)+1 <= questions.length) {
       navigate(`/image-sorting/${parseInt(questionId)+1}`);
     } else {
-      navigate('/image-comparison/');
+      navigate('/submit/');
     }
   }
 
