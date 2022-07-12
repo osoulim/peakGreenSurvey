@@ -11,15 +11,15 @@ function App() {
         This study is about people's perception in comparing color and grayscale images captured by remote sensing satellites.
         One of the applications of these images is in smart agriculture for understanding the performance of different fields. To do so, we need to compare the greenness or brightness of images of the field on various days.
       </p>
-      <h3 style={{fontSize: 22, marginTop: 30}}>Remote sensing</h3>
-      <p> Remote sensing is the process of detecting and monitoring the physical characteristics of an area by measuring
-        its reflected and emitted radiation at a distance (typically from satellite or aircraft). Special cameras collect
-        remotely sensed images, which help researchers "sense" things about the Earth.
-      <a href="https://www.usgs.gov/faqs/what-remote-sensing-and-what-it-used#:~:text=Remote%20sensing%20is%20the%20process,sense%22%20things%20about%20the%20Earth."> [1]</a>
-      </p>
-      <p style={{marginTop: 10}}>
-        Remote sensing also has many applications in smart agriculture. One of these applications is to find how much <b>"green"</b> a field of area is.
-      </p>
+      {/*<h3 style={{fontSize: 22, marginTop: 30}}>Remote sensing</h3>*/}
+      {/*<p> Remote sensing is the process of detecting and monitoring the physical characteristics of an area by measuring*/}
+      {/*  its reflected and emitted radiation at a distance (typically from satellite or aircraft). Special cameras collect*/}
+      {/*  remotely sensed images, which help researchers "sense" things about the Earth.*/}
+      {/*<a href="https://www.usgs.gov/faqs/what-remote-sensing-and-what-it-used#:~:text=Remote%20sensing%20is%20the%20process,sense%22%20things%20about%20the%20Earth."> [1]</a>*/}
+      {/*</p>*/}
+      {/*<p style={{marginTop: 10}}>*/}
+      {/*  Remote sensing also has many applications in smart agriculture. One of these applications is to find how much <b>"green"</b> a field of area is.*/}
+      {/*</p>*/}
       <div style={{display: "flex", flexDirection: "row"}}>
         <img src="/images/feild1.jpg" style={{margin: 5}}/>
         <img src="/images/field2.jpg" style={{margin: 5}}/>
