@@ -82,23 +82,36 @@ const ImageSortingTask = () => {
 
         <DragDropContext onDragEnd={handleOnDragEnd}>
           <Droppable droppableId="images" direction="horizontal">
-            {(provided) => (
-                <div
-                    style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", backgroundColor: "#04293A", borderRadius: 20, padding: 35}}
-                    className="imagesList" {...provided.droppableProps} ref={provided.innerRef}>
-                  { imagesOrder.map((imageAddress, index) =>
-                      (
-                          <Draggable key={imageAddress} draggableId={imageAddress} index={index}>
-                            {(provided) => (
-                                <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                                  <img style={{margin: 10, width: 170}} src={process.env.PUBLIC_URL + imageAddress}/>
-                                </div>
-                            )}
-                          </Draggable>
-                      ))
-                  }
-                </div>
-            )}
+            {(provided) => {
+              console.log("provided", provided);
+              return (
+                  <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        backgroundColor: provided.placeholder.props.on ? "#064866" : "#04293A",
+                        borderRadius: 20,
+                        padding: 35,
+                        borderWidth: 1,
+                      }}
+                      className="imagesList" {...provided.droppableProps} ref={provided.innerRef}>
+                    {imagesOrder.map((imageAddress, index) =>
+                        (
+                            <Draggable key={imageAddress} draggableId={imageAddress} index={index}>
+                              {(provided) => (
+                                  <div
+                                      ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                                    <img style={{margin: 10, width: 170}} src={process.env.PUBLIC_URL + imageAddress}/>
+                                  </div>
+                              )}
+                            </Draggable>
+                        ))
+                    }
+                  </div>
+              )
+            }}
           </Droppable>
 
           <div style={{display: "flex", flexDirection: "row", justifyContent: "space-around",}}>
@@ -106,14 +119,14 @@ const ImageSortingTask = () => {
               <span>First:</span>
               <Droppable droppableId="first" direction="horizontal">
                 {(provided) => (
-                    <div style={{margin: 10, minWidth: 250, minHeight:250, display: "flex", alignItems: "center", justifyContent: "center", padding: 5, borderWidth:1, backgroundColor: "#04293A", borderRadius: 20}}
+                    <div style={{margin: 10, minWidth: 250, minHeight: 250, display: "flex", alignItems: "center", justifyContent: "center", padding: 5, borderWidth:1, backgroundColor: provided.placeholder.props.on ? "#064866" : "#04293A", borderRadius: 20}}
                          className="firstList" {...provided.droppableProps} ref={provided.innerRef}>
                       { firstList.map((imageAddress, index) =>
                           (
                               <Draggable key={imageAddress} draggableId={imageAddress} index={index}>
                                 {(provided) => (
                                     <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                                      <img src={process.env.PUBLIC_URL + imageAddress}/>
+                                      <img style={{margin: 3, width: 170}} src={process.env.PUBLIC_URL + imageAddress}/>
                                     </div>
                                 )}
                               </Draggable>
@@ -128,22 +141,22 @@ const ImageSortingTask = () => {
               <span>Second:</span>
 
               <Droppable droppableId="second" direction="horizontal">
-              {(provided) => (
-                  <div style={{margin: 10, minWidth: 250, minHeight:250, display: "flex", alignItems: "center", justifyContent: "center", padding: 5, borderWidth:1, backgroundColor: "#04293A", borderRadius: 20}}
-                       className="secondList" {...provided.droppableProps} ref={provided.innerRef}>
-                    { secondList.map((imageAddress, index) =>
-                        (
-                            <Draggable key={imageAddress} draggableId={imageAddress} index={index}>
-                              {(provided) => (
-                                  <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                                    <img src={process.env.PUBLIC_URL + imageAddress}/>
-                                  </div>
-                              )}
-                            </Draggable>
-                        ))
-                    }
-                  </div>
-              )}
+                {(provided) => (
+                    <div style={{margin: 10, minWidth: 250, minHeight:250, display: "flex", alignItems: "center", justifyContent: "center", padding: 5, borderWidth:1, backgroundColor: provided.placeholder.props.on ? "#064866" : "#04293A", borderRadius: 20}}
+                         className="secondList" {...provided.droppableProps} ref={provided.innerRef}>
+                      { secondList.map((imageAddress, index) =>
+                          (
+                              <Draggable key={imageAddress} draggableId={imageAddress} index={index}>
+                                {(provided) => (
+                                    <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                                      <img style={{margin: 3, width: 170}} src={process.env.PUBLIC_URL + imageAddress}/>
+                                    </div>
+                                )}
+                              </Draggable>
+                          ))
+                      }
+                    </div>
+                )}
               </Droppable>
             </div>
 
@@ -151,23 +164,23 @@ const ImageSortingTask = () => {
               <span>Third:</span>
 
               <Droppable droppableId="third" direction="horizontal">
-              {(provided) => (
-                  <div style={{margin: 10, minWidth: 250, minHeight:250, display: "flex", alignItems: "center", justifyContent: "center", padding: 5, borderWidth:1, backgroundColor: "#04293A", borderRadius: 20}}
-                       className="thirdList" {...provided.droppableProps} ref={provided.innerRef}>
-                    { thirdList.map((imageAddress, index) =>
-                        (
-                            <Draggable key={imageAddress} draggableId={imageAddress} index={index}>
-                              {(provided) => (
-                                  <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                                    <img src={process.env.PUBLIC_URL + imageAddress}/>
-                                  </div>
-                              )}
-                            </Draggable>
-                        ))
-                    }
-                  </div>
-              )}
-            </Droppable>
+                {(provided) => (
+                    <div style={{margin: 10, minWidth: 250, minHeight:250, display: "flex", alignItems: "center", justifyContent: "center", padding: 5, borderWidth:1, backgroundColor: provided.placeholder.props.on ? "#064866" : "#04293A", borderRadius: 20}}
+                         className="thirdList" {...provided.droppableProps} ref={provided.innerRef}>
+                      { thirdList.map((imageAddress, index) =>
+                          (
+                              <Draggable key={imageAddress} draggableId={imageAddress} index={index}>
+                                {(provided) => (
+                                    <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                                      <img style={{margin: 3, width: 170}} src={process.env.PUBLIC_URL + imageAddress}/>
+                                    </div>
+                                )}
+                              </Draggable>
+                          ))
+                      }
+                    </div>
+                )}
+              </Droppable>
             </div>
           </div>
 
