@@ -63,7 +63,7 @@ function Submit() {
         style={{backgroundColor: isDataSubmitted === "done"? "#198754" : "#ECB365", padding: 10, color: "#000", borderRadius: 10}}
         onClick={submitData}
         disabled={isDataSubmitted!=="error"} >
-        {isDataSubmitted === "error" ? "Submit information" : (isDataSubmitted === "loading"? "Submitting..." : "Done!") }
+        {isDataSubmitted === "error" ? "Submit information" : (isDataSubmitted === "loading"? "Submitting..." : `Done! Copy and paste your email address into the amazon survey field to get your reward!`) }
       </button>
 
     </div>
